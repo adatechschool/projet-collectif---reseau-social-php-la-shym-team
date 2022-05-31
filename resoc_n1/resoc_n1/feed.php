@@ -35,7 +35,7 @@
             /**
              * Etape 1: Le mur concerne un utilisateur en particulier
              */
-           include 'commun_code.php';
+           include 'userID.php';
 
             //$userId = intval($_GET['user_id']);
             ?>
@@ -43,7 +43,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            include 'commun_code.php';
+            include 'server_connect.php';
           //  $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
@@ -53,7 +53,7 @@
                  * Etape 3: récupérer le nom de l'utilisateur
                  */
                 $laQuestionEnSql = "SELECT * FROM `users` WHERE id= '$userId' ";
-                include 'commun_code.php';
+                include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
                 $user = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous

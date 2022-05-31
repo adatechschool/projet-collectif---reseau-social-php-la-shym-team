@@ -43,7 +43,7 @@
                 // Etape 1: récupérer l'id de l'utilisateur
                 $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
-                include 'commun_code.php';
+                include 'server_connect.php';
                 //$mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                 // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "
@@ -53,7 +53,7 @@
                     WHERE followers.following_user_id='$userId'
                     GROUP BY users.id
                     ";
-                    include 'commun_code.php';
+                    include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
                 // Etape 4: à vous de jouer
                 //@todo: faire la boucle while de parcours des abonnés et mettre les bonnes valeurs ci dessous 

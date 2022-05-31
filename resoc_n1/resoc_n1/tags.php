@@ -40,7 +40,7 @@
             /**
              * Etape 2: se connecter à la base de donnée
              */
-            include 'commun_code.php';
+            include 'server_connect.php';
           //  $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
             ?>
 
@@ -50,7 +50,7 @@
                  * Etape 3: récupérer le nom du mot-clé
                  */
                 $laQuestionEnSql = "SELECT * FROM tags WHERE id= '$tagId' ";
-                include 'commun_code.php';
+                include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
                 $tag = $lesInformations->fetch_assoc();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par le label et effacer la ligne ci-dessous

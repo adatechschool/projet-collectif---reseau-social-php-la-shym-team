@@ -51,7 +51,7 @@
                 /**
                  * Etape 2: se connecter à la base de donnée
                  */
-                include 'commun_code.php';
+                include 'server_connect.php';
                 //$mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
 
                 /**
@@ -69,7 +69,7 @@
                     WHERE users.id = '$userId' 
                     GROUP BY users.id
                     ";
-                    include 'commun_code.php';
+                    include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
                 if ( ! $lesInformations)
                 {

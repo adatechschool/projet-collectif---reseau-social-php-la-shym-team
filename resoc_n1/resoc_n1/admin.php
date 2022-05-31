@@ -31,8 +31,7 @@
          * Etape 1: Ouvrir une connexion avec la base de donnée.
          */
         // on va en avoir besoin pour la suite
-       include 'commun_code.php';
-
+       include 'server_connect.php';
        // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
         //verification
         if ($mysqli->connect_errno)
@@ -41,6 +40,7 @@
             exit();
         }
         ?>
+
         <div id="wrapper" class='admin'>
             <aside>
                 <h2>Mots-clés</h2>
@@ -49,9 +49,9 @@
                  * Etape 2 : trouver tous les mots clés
                  */
                 $laQuestionEnSql = "SELECT * FROM `tags` LIMIT 50";
-                include 'commun_code.php';
-
+                include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
+                
                 // Vérification
                 if ( ! $lesInformations)
                 {
@@ -84,7 +84,7 @@
                  * PS: on note que la connexion $mysqli à la base a été faite, pas besoin de la refaire.
                  */
                 $laQuestionEnSql = "SELECT * FROM `users` LIMIT 50";
-                include 'commun_code.php';
+                include 'userinfo.php';
                 //$lesInformations = $mysqli->query($laQuestionEnSql);
                 // Vérification
                 if ( ! $lesInformations)
