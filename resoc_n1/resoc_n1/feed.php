@@ -77,7 +77,8 @@
                 $laQuestionEnSql = "
                     SELECT posts.content,
                     posts.created,
-                    users.alias as author_name,  
+                    users.alias as author_name,
+                      
                     count(likes.id) as like_number,  
                     GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM followers 
@@ -106,10 +107,19 @@
                  */
                 ?>                
                 <article>
+
+                
                     <h3>
                         <time datetime='2020-02-01 11:12:13' ><?php echo $user['created']?></time>
                     </h3>
-                    <address><?php echo $user['author_name']?></address>
+                    <address>
+                     <?php 
+                     $userName=$user['author_name'];
+                     $authorId =intval($user['id']);
+                     echo 
+                    "<a href=\"wall.php?user_id=$authorId\">$userName</a>"
+                    ?>;
+                    </address>
                     <div>
                         <p><?php echo $user['content']?></p>
                         <!-- <p>Ceci est un autre paragraphe</p>
