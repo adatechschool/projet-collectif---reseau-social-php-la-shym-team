@@ -46,7 +46,9 @@
               //  $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                 // Etape 3: récupérer le nom de l'utilisateur
                 $laQuestionEnSql = "
-                    SELECT users.*
+                    SELECT users.*,
+                    users.alias as author_name,
+                    users.id as author_id
                     FROM followers
                     LEFT JOIN users ON users.id=followers.following_user_id
                     WHERE followers.followed_user_id='$userId'
@@ -69,7 +71,12 @@
                 ?>
                 <article>
                     <img src="user.jpg" alt="blason"/>
-                    <h3><?php echo $user['alias']?></h3>
+                    <h3><?php 
+                     $userName=$user['author_name'];
+                     $authorId =$user['author_id'];
+                     echo 
+                    "<a href=\"wall.php?user_id=$authorId\">$userName</a>"
+                    ?></h3>
                     <p><?php echo $user['id']?></p>
                 </article>
                 <?php

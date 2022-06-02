@@ -78,7 +78,7 @@
                     SELECT posts.content,
                     posts.created,
                     users.alias as author_name,
-                      
+                    users.id as author_id,
                     count(likes.id) as like_number,  
                     GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM followers 
@@ -115,7 +115,7 @@
                     <address>
                      <?php 
                      $userName=$user['author_name'];
-                     $authorId =intval($user['id']);
+                     $authorId =$user['author_id'];
                      echo 
                     "<a href=\"wall.php?user_id=$authorId\">$userName</a>"
                     ?>;
