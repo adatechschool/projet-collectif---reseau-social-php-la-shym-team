@@ -55,7 +55,7 @@
     // [motpasse] => h14650e
 
 
-                        echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                        //echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
                         $new_email = $_POST['email'];
                         $new_alias = $_POST['pseudo'];
@@ -63,7 +63,7 @@
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        // On a enlvé test de "socialnetwork"
+                        // On a enlevé test de "socialnetwork"
                         $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
