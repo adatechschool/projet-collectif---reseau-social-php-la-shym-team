@@ -1,5 +1,5 @@
 body{
-    background-color: #003;
+    background-color: lightpink;
     font-family: Arial;
 }
 
@@ -74,7 +74,7 @@ body>header #user:hover ul{
     margin:0 auto 2em auto;
 }
 #wrapper aside{
-    background-color: #fff;
+    background-color: bisque;
     flex:1;
     padding:1em;
     border-radius: 1em;    
@@ -92,7 +92,7 @@ body>header #user:hover ul{
     overflow-y:  scroll;
 }
 #wrapper main article{
-    background-color: #fff;
+    background-color: bisque;
     padding:1em;
     margin-bottom: 1em ;
     border-radius: 1em;
