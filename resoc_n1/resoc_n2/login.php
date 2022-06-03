@@ -48,16 +48,16 @@ session_start();
                     if ($enCoursDeTraitement)
                     {
                         // on ne fait ce qui suit que si un formulaire a été soumis.
-                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travail se situe
+                        // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travaille se situe
                         // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
                         echo "<pre>" . print_r($_POST, 1) . "</pre>";
                         // et complétez le code ci dessous en remplaçant les ???
-                        $emailAVerifier = $_POST['email'];
-                        $passwdAVerifier = $_POST['motpasse'];
+                        $emailAVerifier = $_POST['???'];
+                        $passwdAVerifier = $_POST['???'];
 
 
                         //Etape 3 : Ouvrir une connexion avec la base de donnée.
-                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
+                        $mysqli = new mysqli("localhost", "root", "root", "socialnetwork_tests");
                         //Etape 4 : Petite sécurité
                         // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
                         $emailAVerifier = $mysqli->real_escape_string($emailAVerifier);
@@ -66,12 +66,11 @@ session_start();
                         $passwdAVerifier = md5($passwdAVerifier);
                         // NB: md5 est pédagogique mais n'est pas recommandée pour une vraies sécurité
                         //Etape 5 : construction de la requete
-                        $lInstructionSql = "SELECT users.* " 
-                                . "FROM users " 
-                                . "WHERE email LIKE '" . $emailAVerifier . "'"
+                        $lInstructionSql = "SELECT * "
+                                . "FROM users "
+                                . "WHERE "
+                                . "email LIKE '" . $emailAVerifier . "'"
                                 ;
-                                echo ($lInstructionSql);
-
                         // Etape 6: Vérification de l'utilisateur
                         $res = $mysqli->query($lInstructionSql);
                         $user = $res->fetch_assoc();
