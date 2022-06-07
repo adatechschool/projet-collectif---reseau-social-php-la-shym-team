@@ -70,7 +70,7 @@ session_start();
                                 . "FROM users " 
                                 . "WHERE email LIKE '" . $emailAVerifier . "'"
                                 ;
-                                echo ($lInstructionSql);
+                                //echo ($lInstructionSql);
 
                         // Etape 6: Vérification de l'utilisateur
                         $res = $mysqli->query($lInstructionSql);
@@ -85,6 +85,9 @@ session_start();
                             // Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
                             // documentation: https://www.php.net/manual/fr/session.examples.basic.php
                             $_SESSION['connected_id']=$user['id'];
+                            echo "Voici mon".$user['id'];
+                            header("Location:http://localhost:8888/projet-collectif---reseau-social-php-la-shym-team/resoc_n1/resoc_n1/wall.php?user_id=". $user['id']);
+                            exit();
                         }
                     }
                     ?>                     
@@ -102,7 +105,6 @@ session_start();
                         Pas de compte?
                         <a href='registration.php'>Inscrivez-vous.</a>
                     </p>
-
                 </article>
             </main>
         </div>
