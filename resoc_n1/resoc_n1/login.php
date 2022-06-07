@@ -86,7 +86,7 @@ session_start();
                             // documentation: https://www.php.net/manual/fr/session.examples.basic.php
                             $_SESSION['connected_id']=$user['id'];
                             echo "Voici mon".$user['id'];
-                            header("Location:http://localhost:8888/projet-collectif---reseau-social-php-la-shym-team/resoc_n1/resoc_n1/wall.php?user_id=". $user['id']);
+                            header("Location: wall.php?user_id=". $user['id']);
                             exit();
                         }
                     }

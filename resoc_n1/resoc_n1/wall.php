@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -65,7 +68,27 @@
                 </section>
             </aside>
             <main>
+            <form action="wall.php" method="post">
+                <input type='hidden'name='???' value='achanger'>
+                <dl>
+                    <dt><label for='userMessage'>Post a message</label></dt>
+                    <textarea name='message' rows="5" cols="33" > </textarea>
+                   
+                </dl>
+                <input type='submit'>
+            </form>
                 <?php
+                $messageRecu = isset($_POST['message']);
+                if ($messageRecu)
+                {
+                    // on ne fait ce qui suit que si un formulaire a été soumis.
+                    // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travail se situe
+                    // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
+                    echo "<pre>" . print_r($_POST, 1) . "</pre>";
+                    // et complétez le code ci dessous en remplaçant les ???
+                    $messageAVerifier = $_POST['message'];
+                }    
+                    
                 /**
                  * Etape 3: récupérer tous les messages de l'utilisatrice
                  */
@@ -90,7 +113,7 @@
                 {
                     echo("Échec de la requete : " . $mysqli->error);
                 }
-
+             
                 /**
                  * Etape 4: @todo Parcourir les messsages et remplir correctement le HTML avec les bonnes valeurs php
                  */
@@ -109,6 +132,7 @@
                      echo 
                     "<a href=\"wall.php?user_id=$authorId\">$userName</a>"
                     ?></address>
+                   
                         <div>
                             <p><?php echo $post['content']?></p>
                             <!-- <p>Ceci est un autre paragraphe</p>
