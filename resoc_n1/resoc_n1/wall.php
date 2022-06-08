@@ -68,10 +68,10 @@ session_start();
                 </section>
             </aside>
             <main>
-            <form action="wall.php" method="post">
-                <input type='hidden'name='???' value='achanger'>
+            <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
+                <input type='hidden'name='user_id' value=<?php echo $userId ?>>
                 <dl>
-                    <dt><label for='userMessage'>Post a message</label></dt>
+                    <dt><label for='message'>Post a message</label></dt>
                     <textarea name='message' rows="5" cols="33" > </textarea>
                    
                 </dl>
@@ -80,15 +80,37 @@ session_start();
                 <?php
                 $messageRecu = isset($_POST['message']);
                 if ($messageRecu)
-                {
-                    // on ne fait ce qui suit que si un formulaire a été soumis.
-                    // Etape 2: récupérer ce qu'il y a dans le formulaire @todo: c'est là que votre travail se situe
-                    // observez le résultat de cette ligne de débug (vous l'effacerez ensuite)
-                    echo "<pre>" . print_r($_POST, 1) . "</pre>";
-                    // et complétez le code ci dessous en remplaçant les ???
+                { 
+                    $messageSenderID = $_POST['user_id'];
                     $messageAVerifier = $_POST['message'];
-                }    
+
+                    //echo "<pre>" . print_r($_POST, 1) . "</pre>";
+
+                    // pour éviter les injection sql : https://www.w3schools.com/sql/sql_injection.asp
+
+                    // $messageSenderID = intval($mysqli->real_escape_string($messageSenderID));
+                    // $messageAVerifier = $mysqli->real_escape_string($messageAVerifier);
+
+                    $retrieveMessage = "INSERT INTO posts " 
+                    . "(id, user_id, content, created, parent_id) "
+                    . "VALUES (NULL, "
+                    . $messageSenderID . ", "
+                    . "'" . $messageAVerifier . "', "
+                    . "NOW(), "
+                    . "NULL);"
+                    . "";
+
+                    $ok = $mysqli->query($retrieveMessage);
+                        if ( ! $ok)
+                        {
+                            echo "Impossible d'ajouter le message: " . $mysqli->error;
+                        } else
+                        {
+                            //echo "Message posté en tant que : " . $messageSenderID;
+                        }
                     
+                    //echo $retrieveMessage ;
+                    }   
                 /**
                  * Etape 3: récupérer tous les messages de l'utilisatrice
                  */
@@ -147,8 +169,6 @@ session_start();
                         </footer>
                     </article>
                 <?php } ?>
-
-
             </main>
         </div>
     </body>

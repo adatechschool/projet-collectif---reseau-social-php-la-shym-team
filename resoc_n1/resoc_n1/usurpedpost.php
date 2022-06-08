@@ -85,7 +85,7 @@ session_start();
                         // "INSERT INTO posts 
                         // . '(id, user_id, content, created, parent_id)'
                         // . 'VALUES (NULL, '
-                        // . $authorId . ', '
+                        // . $userId . ', '
                         // . ''' . $postContent . '', '
                         // . 'NOW(), '
                         // . ''', '
