@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -32,14 +35,16 @@
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez la liste des personnes qui
                         suivent les messages de l'utilisatrice
-                        n° <?php echo intval($_GET['user_id'])//echo include "commun_code.php" ;  ?></p>
+                        n° <?php echo intval($_SESSION['connected_id'])//echo include "commun_code.php" ;  ?></p>
 
                 </section>
             </aside>
             <main class='contacts'>
                 <?php
                 // Etape 1: récupérer l'id de l'utilisateur
-                include 'userID.php';
+                //include 'userID.php';
+                $userId = intval($_SESSION['connected_id']);
+                echo $userId;
                // $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
                include 'server_connect.php';

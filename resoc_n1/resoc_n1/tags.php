@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
     <head>
@@ -34,6 +37,7 @@
             /**
              * Etape 1: Le mur concerne un mot-clé en particulier
              */
+            /* doutes */
             $tagId = intval($_GET['tag_id']);
             ?>
             <?php

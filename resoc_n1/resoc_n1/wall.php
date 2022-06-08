@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!doctype html>
 <html lang="fr">
     <head>
@@ -14,7 +15,7 @@ session_start();
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=5">Mur</a>
+                <a href="wall.php?user_id=<?php echo intval($_SESSION['connected_id'])?>">Mur</a>
                 <a href="feed.php?user_id=5">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
             </nav>
@@ -37,11 +38,13 @@ session_start();
              * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
              * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
              */
-            $userId =intval($_GET['user_id']);
+            print_r($_SESSION);
+            $userId =intval($_GET['user_id']); 
+            // replace $userId = intval($_SESSION['connected_id']);<
             ?>
             <?php
             /**
-             * Etape 2: se connecter à la base de donnée
+             * Etape 2: se connecter à la base de donnée'
              */
             include 'server_connect.php';
            // $mysqli = new mysqli("localhost", "root", "root", "socialnetwork");
