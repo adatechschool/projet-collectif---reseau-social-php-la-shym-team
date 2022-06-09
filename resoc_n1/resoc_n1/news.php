@@ -42,7 +42,7 @@ session_start();
             <main>
                 <!-- L'article qui suit est un exemple pour la présentation et 
                   @todo: doit etre retiré -->
-                <article>
+                <!-- <article>
                     <h3>
                         <time datetime='2020-02-01 11:12:13' >31 février 2010 à 11h12</time>
                     </h3>
@@ -59,7 +59,7 @@ session_start();
                         <a href="">#lorem</a>,
                         <a href="">#piscitur</a>,
                     </footer>
-                </article>               
+                </article>                -->
 
                 <?php
                 /*

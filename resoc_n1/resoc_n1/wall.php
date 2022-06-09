@@ -44,7 +44,7 @@ session_start();
              * Documentation : https://www.php.net/manual/fr/reserved.variables.get.php
              * ... mais en résumé c'est une manière de passer des informations à la page en ajoutant des choses dans l'url
              */
-            print_r($_SESSION);
+            //print_r($_SESSION);
             $userId =intval($_GET['user_id']); 
             // replace $userId = intval($_SESSION['connected_id']);<
             ?>
@@ -91,16 +91,15 @@ session_start();
             <form action="logout.php" method="post">
                 <input type='submit' value='Déconnexion'/>
             </form>
+             
                 <?php
                 $messageRecu = isset($_POST['message']);
                 if ($messageRecu)
                 { 
                     $messageSenderID = $_SESSION['connected_id'];
-                    echo $messageSenderID;
+                    //echo $messageSenderID;
                     $messageAVerifier = $_POST['message'];
-                    echo $messageAVerifier;
-                   
-                    
+                    //echo $messageAVerifier;
                     
 
                     //echo "<pre>" . print_r($_POST, 1) . "</pre>";
@@ -110,14 +109,14 @@ session_start();
                     // $messageSenderID = intval($mysqli->real_escape_string($messageSenderID));
                     // $messageAVerifier = $mysqli->real_escape_string($messageAVerifier);
                     $retrieveMessage = "INSERT INTO posts " 
-                    . "(id, user_id, content, created, parent_id, author_id, writer_name)"
+                    . "(id, user_id, content, created, parent_id)"
                     . "VALUES (NULL, "
                     . "'" . $userId . "', "
                     . "'" . $messageAVerifier . "', "
                     . "NOW(), "
-                    . "NULL," 
-                    . "'" . $messageSenderID . "', "
-                    . $recupWriterName . "' "
+                    . "NULL" 
+                    // . "'" . $messageSenderID . "', "
+                    // . $writerName . "' "
                     . ");"
                     . "";
                     echo $retrieveMessage;
@@ -178,10 +177,10 @@ session_start();
                      $writerName = $post['writer_name'];
                      echo 
                     "<a href=\"wall.php?user_id=$authorId\">$userName</a>";
-                    echo 
-                   "<a href=\"wall.php?user_id=$authorId\"> par $writerID </a>";
-                   echo 
-                   "<a href=\"wall.php?user_id=$authorId\"> par $writerName </a>";
+                //     echo 
+                //    "<a href=\"wall.php?user_id=$authorId\"> par $writerID </a>";
+                //    echo 
+                //    "<a href=\"wall.php?user_id=$authorId\"> par $writerName </a>";
                     ?></address>
                    
                         <div>
