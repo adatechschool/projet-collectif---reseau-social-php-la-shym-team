@@ -11,11 +11,17 @@ session_start();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+ <!-- <header-->
+   <?php 
+      include 'session.php';
+       ?>
+
+<main>
+        <!-- <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
-                <a href="wall.php?user_id=<?php echo intval($_SESSION['connected_id'])?>">Mur</a>
+                <a href="wall.php?user_id=">Mur</a>
                 <a href="feed.php?user_id=5">Flux</a>
                 <a href="tags.php?tag_id=1">Mots-clés</a>
             </nav>
@@ -28,7 +34,7 @@ session_start();
                 </ul>
 
             </nav>
-        </header>
+        </header> -->
         <div id="wrapper">
             <?php
             /**
@@ -71,8 +77,9 @@ session_start();
                 </section>
             </aside>
             <main>
+        <!--Post form-->
             <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
-                <input type='hidden'name='user_id' value=<?php echo $userId ?>>
+                <input type='hidden'name='user_id' value=<?php echo $userId?>>
                 <dl>
                     <dt><label for='message'>Post a message</label></dt>
                     <textarea name='message' rows="5" cols="33" > </textarea>
@@ -80,12 +87,19 @@ session_start();
                 </dl>
                 <input type='submit'>
             </form>
+<!--input log out -->
+            <form action="logout.php" method="post">
+                <input type='submit' value='Déconnexion'/>
+            </form>
                 <?php
                 $messageRecu = isset($_POST['message']);
                 if ($messageRecu)
                 { 
-                    $messageSenderID = $_POST['user_id'];
+                    $messageSenderID = $_SESSION['connected_id'];
+                    echo $messageSenderID;
                     $messageAVerifier = $_POST['message'];
+                    echo $messageAVerifier;
+                    
 
                     //echo "<pre>" . print_r($_POST, 1) . "</pre>";
 
@@ -93,7 +107,6 @@ session_start();
 
                     // $messageSenderID = intval($mysqli->real_escape_string($messageSenderID));
                     // $messageAVerifier = $mysqli->real_escape_string($messageAVerifier);
-
                     $retrieveMessage = "INSERT INTO posts " 
                     . "(id, user_id, content, created, parent_id) "
                     . "VALUES (NULL, "
@@ -166,7 +179,7 @@ session_start();
                                 provenance de la base de donnée</p> -->
                         </div>                                            
                         <footer>
-                            <small>♥ <?php echo $post['like_number']?></small>
+                            <small><a href="">♥ <?php echo $post['like_number']?></small></a>
                             <a href=""><?php echo $post['taglist']?></a>
                             <!-- <a href="">#piscitur</a>, -->
                         </footer>

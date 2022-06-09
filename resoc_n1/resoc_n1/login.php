@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-session_unset();
-session_destroy();
+//session_unset();
+//session_destroy();
 ?>
 <!doctype html>
 <html lang="fr">
@@ -13,7 +13,10 @@ session_destroy();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+    <?php 
+       include 'session.php';
+       ?>
+        <!-- <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
@@ -30,7 +33,7 @@ session_destroy();
                 </ul>
 
             </nav>
-        </header>
+        </header> -->
 
         <div id="wrapper" >
 
@@ -87,7 +90,7 @@ session_destroy();
                             echo "Votre connexion est un succès : " . $user['alias'] . ".";
                             // Etape 7 : Se souvenir que l'utilisateur s'est connecté pour la suite
                             // documentation: https://www.php.net/manual/fr/session.examples.basic.php
-                            session_start();
+                           // session_start();
                             $_SESSION['connected_id']=$user['id'];
                             echo "Voici mon".$user['id'];
                             header("Location: wall.php?user_id=". $user['id']);

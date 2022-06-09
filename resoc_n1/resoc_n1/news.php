@@ -10,7 +10,10 @@ session_start();
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <header>
+    <?php 
+       include 'session.php';
+       ?>
+        <!-- <header>
             <a href='admin.php'><img src="resoc.jpg" alt="Logo de notre réseau social"/></a>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
@@ -26,7 +29,7 @@ session_start();
                     <li><a href="subscriptions.php?user_id=5">Mes abonnements</a></li>
                 </ul>
             </nav>
-        </header>
+        </header> -->
         <div id="wrapper">
             <aside>
                 <img src="shym.jpg" alt="Portrait de l'utilisatrice"/>

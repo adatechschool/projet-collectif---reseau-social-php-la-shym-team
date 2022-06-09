@@ -9,9 +9,14 @@ session_start();
         <title>ReSoC - Administration</title> 
         <meta name="author" content="Julien Falconnet">
         <link rel="stylesheet" href="style.css"/>
+
+        <?php 
+       include 'session.php';
+       ?> 
     </head>
     <body>
-        <header>
+        
+        <!-- <header>
             <img src="resoc.jpg" alt="Logo de notre réseau social"/>
             <nav id="menu">
                 <a href="news.php">Actualités</a>
@@ -28,7 +33,7 @@ session_start();
                 </ul>
 
             </nav>
-        </header>
+        </header> -->
 
         <?php
         /**
