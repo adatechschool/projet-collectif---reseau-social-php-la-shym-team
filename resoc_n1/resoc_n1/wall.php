@@ -99,6 +99,8 @@ session_start();
                     echo $messageSenderID;
                     $messageAVerifier = $_POST['message'];
                     echo $messageAVerifier;
+                   
+                    
                     
 
                     //echo "<pre>" . print_r($_POST, 1) . "</pre>";
@@ -108,14 +110,17 @@ session_start();
                     // $messageSenderID = intval($mysqli->real_escape_string($messageSenderID));
                     // $messageAVerifier = $mysqli->real_escape_string($messageAVerifier);
                     $retrieveMessage = "INSERT INTO posts " 
-                    . "(id, user_id, content, created, parent_id) "
+                    . "(id, user_id, content, created, parent_id, author_id, writer_name)"
                     . "VALUES (NULL, "
-                    . $messageSenderID . ", "
+                    . "'" . $userId . "', "
                     . "'" . $messageAVerifier . "', "
                     . "NOW(), "
-                    . "NULL);"
+                    . "NULL," 
+                    . "'" . $messageSenderID . "', "
+                    . $recupWriterName . "' "
+                    . ");"
                     . "";
-
+                    echo $retrieveMessage;
                     $ok = $mysqli->query($retrieveMessage);
                         if ( ! $ok)
                         {
@@ -133,7 +138,9 @@ session_start();
                 $laQuestionEnSql = "
                     SELECT posts.content, 
                     posts.created, 
-                    users.alias as author_name, 
+                    users.alias as owner_name, 
+                    posts.author_id as writer_id,
+                    posts.writer_name as writer_name,
                     users.id as author_id,
                     COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM posts
@@ -165,10 +172,16 @@ session_start();
                             <time datetime='2020-02-01 11:12:13' ><?php echo $post['created']?></time>
                         </h3>
                         <address><?php 
-                     $userName=$post['author_name'];
+                     $userName=$post['owner_name'];
                      $authorId =$post['author_id'];
+                     $writerID = $post['writer_id'];
+                     $writerName = $post['writer_name'];
                      echo 
-                    "<a href=\"wall.php?user_id=$authorId\">$userName</a>"
+                    "<a href=\"wall.php?user_id=$authorId\">$userName</a>";
+                    echo 
+                   "<a href=\"wall.php?user_id=$authorId\"> par $writerID </a>";
+                   echo 
+                   "<a href=\"wall.php?user_id=$authorId\"> par $writerName </a>";
                     ?></address>
                    
                         <div>
