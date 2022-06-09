@@ -1,25 +1,23 @@
 body{
-    background-color: lightpink;
+    background-color: white;
     font-family: Arial;
 }
-
 a{text-decoration: none; color:black;}
 a:hover{text-decoration: underline;}
-
 body>header{
     background-color: #fff;
     display:flex;
     width:80em;
     margin:0 auto 2em auto;    
     padding:0;
-
 }
 body>header img{
     height:5em;
+    
 }
 body>header #menu {
     display:flex;
-    width:50%;
+    width:70%;
     align-items: stretch;
     border-left: 1px solid #99b;
 }
@@ -31,14 +29,16 @@ body>header #menu a{
 }
 body>header a:hover
 {
-    background-color: #99b;
+    background-color: #eac4d5;
 }
 body>header ul{list-style: none;}
 body>header #user
 {
-    margin-left: auto;
+    /* margin-left:20px; */
     flex:0.2;
-    border-left: 1px solid #99b;
+    width:70%;
+   
+   
 }
 body>header #user>a{
     display:block;
@@ -54,7 +54,6 @@ body>header #user ul{
     margin-left:-5em;
     background-color: #fff;
     border: 1px solid #99b;
-
     z-index: 1;
 }
 body>header #user ul li a{
@@ -66,25 +65,23 @@ body>header #user ul li a{
 body>header #user:hover ul{
     display:block;
 }
-
-
 #wrapper{
     display:flex;    
     width:80em;
     margin:0 auto 2em auto;
 }
 #wrapper aside{
-    background-color: bisque;
+    background-color:#d6eadf;
     flex:1;
     padding:1em;
     border-radius: 1em;    
+    
 }
 #wrapper aside img{
     display: block;
     width:50%;
     margin:auto;
 }
-
 #wrapper main{
     flex:3;
     padding-left:1em;
@@ -92,17 +89,17 @@ body>header #user:hover ul{
     overflow-y:  scroll;
 }
 #wrapper main article{
-    background-color: bisque;
+    background-color: #d6eadf;
     padding:1em;
     margin-bottom: 1em ;
     border-radius: 1em;
+   
 }
 #wrapper main article h3{
     margin:0;
     padding:0;
     font-weight: normal;
     font-size:1em;
-
 }
 #wrapper main article time{
     float:left;
@@ -121,7 +118,6 @@ body>header #user:hover ul{
 #wrapper main article footer small{
     float:left;
 }
-
 #wrapper.admin{flex-direction: row-reverse}
 #wrapper.admin aside{flex:1;margin-left:1em;border-radius:0;padding:0;}
 #wrapper.admin main{flex:2;background-color: #fff;border-radius: 0;padding:0;}
@@ -130,11 +126,8 @@ body>header #user:hover ul{
 #wrapper.admin nav{text-align: right;}
 #wrapper.admin article{border:1px solid #ddd;border-radius: 1em;padding:1em;margin:1em;}
 #wrapper.admin article p{float:left;margin:0;}
-
-
 .parameters dl dt{float:left;font-weight: bold;line-height: 1.5em;}
 .parameters dl dd{margin-left:15em;line-height: 1.5em;}
-
 .contacts {
     display:flex;
     flex-wrap: wrap;
@@ -150,7 +143,6 @@ body>header #user:hover ul{
     float:right;
     height: 5em;
 }
-
 pre{
     color:#aaa;
 }
