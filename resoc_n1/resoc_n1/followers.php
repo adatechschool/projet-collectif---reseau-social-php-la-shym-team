@@ -47,7 +47,7 @@ session_start();
                 // Etape 1: récupérer l'id de l'utilisateur
                 //include 'userID.php';
                 $userId = intval($_SESSION['connected_id']);
-                echo $userId;
+                //echo $userId;
                // $userId = intval($_GET['user_id']);
                 // Etape 2: se connecter à la base de donnée
                include 'server_connect.php';

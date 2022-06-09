@@ -57,7 +57,7 @@ session_start();
 
                 
                 $userId = intval($_SESSION['connected_id']);
-                echo $userId;
+                //echo $userId;
 
                 /**
                  * Etape 2: se connecter à la base de donnée

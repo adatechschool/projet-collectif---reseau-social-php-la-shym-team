@@ -106,8 +106,9 @@ session_start();
                             <dt><label for='motpasse'>Mot de passe</label></dt>
                             <dd><input type='password'name='motpasse'></dd>
                         </dl>
-                        <input type='submit'>
+                        <input class='login' type='submit'>
                     </form>
+                    <br>
                     <p>
                         Pas de compte?
                         <a href='registration.php'>Inscrivez-vous.</a>

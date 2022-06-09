@@ -68,7 +68,7 @@ session_start();
                 //@todo: afficher le résultat de la ligne ci dessous, remplacer XXX par l'alias et effacer la ligne ci-dessous
                 //echo "<pre>" . print_r($user, 1) . "</pre>";
                 ?>
-                <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
+                <img src="wedjene_felicie.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
                     <h3>Présentation</h3>
                     <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <?php echo $user['alias']?>;
@@ -78,19 +78,25 @@ session_start();
             </aside>
             <main>
         <!--Post form-->
+        
+
+
+
             <form action="wall.php?user_id=<?php echo $userId ?>" method="post">
                 <input type='hidden'name='user_id' value=<?php echo $userId?>>
                 <dl>
                     <dt><label for='message'>Post a message</label></dt>
-                    <textarea name='message' rows="5" cols="33" > </textarea>
+                    <textarea  name='message' rows="5" cols="33" > </textarea>
                    
                 </dl>
-                <input type='submit'>
+                <input class='login' type='submit'>
             </form>
 <!--input log out -->
-            <form action="logout.php" method="post">
+            <!-- <form action="logout.php" method="post">
                 <input type='submit' value='Déconnexion'/>
-            </form>
+            </form> -->
+
+            <br>
              
                 <?php
                 $messageRecu = isset($_POST['message']);
