@@ -38,8 +38,8 @@ session_start();
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
-                <p>Bienvenu sur notre réseau social.</p>
+                <h2>♥ ♥ ♥ Coucou ♥ ♥ ♥ </h2>
+                <p>Bienvenue sur Skyblo0og</p>
             </aside>
             <main>
                 <article>

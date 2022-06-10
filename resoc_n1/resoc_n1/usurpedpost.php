@@ -37,7 +37,7 @@ session_start();
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
+                <h2>Coucou ♥ ♥ ♥</h2>
                 <p>Sur cette page on peut poster un message en se faisant 
                     passer pour quelqu'un d'autre</p>
             </aside>

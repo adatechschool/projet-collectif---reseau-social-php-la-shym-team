@@ -70,7 +70,7 @@ session_start();
                 ?>
                 <img src="wedjene_felicie.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
+                    <h3>Coucou ♥ ♥ ♥</h3>
                     <p>Sur cette page vous trouverez tous les message de l'utilisatrice : <?php echo $user['alias']?>;
                         (n° <?php echo $userId ?>)
                     </p>
@@ -144,14 +144,14 @@ session_start();
                     users.alias as owner_name, 
                     posts.author_id as writer_id,
                     users.id as author_id,
-                    zizi.alias AS zizi2,
+                    poster.alias AS poster2,
                     COUNT(likes.id) as like_number, GROUP_CONCAT(DISTINCT tags.label) AS taglist 
                     FROM posts
                     JOIN users ON  users.id=posts.user_id
                     LEFT JOIN posts_tags ON posts.id = posts_tags.post_id  
                     LEFT JOIN tags       ON posts_tags.tag_id  = tags.id 
                     LEFT JOIN likes      ON likes.post_id  = posts.id 
-                    LEFT JOIN users AS zizi ON zizi.id = posts.author_id
+                    LEFT JOIN users AS poster ON poster.id = posts.author_id
 
                     WHERE posts.user_id='$userId' 
                     GROUP BY posts.id
@@ -180,13 +180,13 @@ session_start();
                      $userName=$post['owner_name'];
                      $authorId =$post['author_id'];
                      $writerID = $post['writer_id'];
-                     $superzizi = $post['zizi2'];
+                     $superPoster = $post['poster2'];
                      echo 
                     "<a href=\"wall.php?user_id=$authorId\"> message à $userName</a>";
                 //     echo 
                 //    "<a href=\"wall.php?user_id=$authorId\"> par $writerID </a>";
                    echo 
-                   "<a href=\"wall.php?user_id=$authorId\"> de la part $superzizi </a>";
+                   "<a href=\"wall.php?user_id=$authorId\"> de la part $superPoster </a>";
                     ?></address>
                    
                         <div>

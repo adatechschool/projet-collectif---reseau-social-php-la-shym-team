@@ -36,7 +36,7 @@ session_start();
         <div id="wrapper" >
 
             <aside>
-                <h2>Présentation</h2>
+                <h2>Coucou ♥ ♥ ♥</h2>
                 <p>Bienvenu sur notre réseau social.</p>
             </aside>
             <main>

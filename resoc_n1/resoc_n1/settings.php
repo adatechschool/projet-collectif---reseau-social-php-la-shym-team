@@ -37,7 +37,7 @@ session_start();
             <aside>
                 <img src="user.jpg" alt="Portrait de l'utilisatrice"/>
                 <section>
-                    <h3>Présentation</h3>
+                    <h3>Coucou ♥ ♥ ♥</h3>
                     <p>Sur cette page vous trouverez les informations de l'utilisatrice
                         n° <?php echo intval($_SESSION['connected_id']) ?></p>
 
